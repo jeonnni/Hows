@@ -1,0 +1,107 @@
+/* FAQ 컨테이너 스타일 */
+.faqContainer {
+    flex: 9 1;
+    height: 100%;
+    overflow-y: auto;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* .faqList {
+    margin-top: 10px;
+} */
+
+.faq {
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid var(--hows-white);
+    border-radius: 10px;
+    background-color: var(--hows-point-color);
+    color: var(--hows-white);
+    position: relative;
+}
+
+.faqTitleContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* FAQ 제목 */
+.faqTitle {
+    font-size: 18px;
+    font-family: Arial, sans-serif;
+    word-break: break-word;
+    width: 98%;
+    box-sizing: border-box;
+    background-color: transparent; 
+    resize: none; 
+    color: var(--hows-white);
+    border: 1px solid transparent;
+}
+
+/* FAQ 내용 */
+.faqContent {
+    margin: 5 0px;
+    font-size: 18px;
+    display: none;
+    font-family: Arial, sans-serif;
+    width: 98%;
+    word-break: break-word;
+    background-color: transparent;
+    resize: none;
+    color: var(--hows-white);
+    border: 1px solid transparent;
+}
+
+
+.faq.active .faqContent {
+    display: block;
+}
+
+.faqToggle, .faqDelete {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--hows-white);
+    font-size: 18px;
+}
+
+/* 추가 버튼 */
+.addfaqSection {
+    position: fixed;
+    top: 9%;
+    right: 30px;
+    display: flex;
+    justify-content: flex-end;
+    gap: 5px;
+}
+
+.addfaq {
+    background-color: #555;
+    color: var(--hows-white);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    position: fixed;
+    top: 10%;
+}
+
+/* 수정, 삭제, 저장, 취소 버튼 */
+.faqActionButtons {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.saveBtn, .cancelBtn, .editBtn, .deleteBtn {
+    background-color: #555;
+    color: var(--hows-white);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-left: 10px
+}

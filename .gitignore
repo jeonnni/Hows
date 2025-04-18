@@ -1,0 +1,6 @@
+/.metadata/
+
+.DS_Store
+HowsFront/.env
+HowsServer/src/main/resources/*.json
+HowsFront/.firebase/

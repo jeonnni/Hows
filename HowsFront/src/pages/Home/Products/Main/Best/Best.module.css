@@ -1,0 +1,83 @@
+.container {
+    max-width: 1300px;
+    padding: 20px 0;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.bestTitlt{
+    height: 100px;
+    font-size: 24px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.contents {
+    display: flex; flex-wrap: wrap;
+    padding: 20px 0px;
+}
+
+.item {
+    width: 305px;
+    height: 500px;
+    margin: 10px;
+    position: relative;
+    cursor: pointer;
+}
+
+.item:hover .img > img {
+    transform: scale(1.1);
+    opacity: 0.8;
+}
+
+/* 북마크 */
+.bookMark {
+    position: absolute; 
+    z-index: 50;
+    width: 50px; 
+    background-color: var(--hows-point-color-dark);
+    color: white; 
+    height: 50px; 
+    border-radius: 10px 0 10px 10px; 
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+/* 상품 이미지 */
+.img {
+    height: 400px;
+    overflow: hidden;
+    border-radius: 8px 8px 0px 0px; 
+    transition: all 0.3s ease;
+}
+.img > img {
+    object-fit: cover; 
+    width: 100%;height: 100%; 
+    border-radius: 8px 8px 0 0;
+    transition: all 0.3s ease;
+}
+
+/* 상품 설명 */
+.title {
+    border:1px solid var(--hows-gray-200);
+    border-radius: 0 0 8px 8px;
+    height: 100px;
+}
+
+/* 상품 설명 - 상품명 */
+.title > div {
+    text-align: center;
+    height: 50px; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; 
+}
+/* 상품 설명 - 가격 */
+.title > div:last-child{
+    font-weight: bold;
+}

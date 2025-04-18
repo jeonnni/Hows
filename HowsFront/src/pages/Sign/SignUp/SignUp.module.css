@@ -1,0 +1,229 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 70px 0 70px;
+  height: 100%;
+}
+
+.container .signUpBox {
+  display: flex;
+  flex-direction: column;
+  width: 430px;
+  height: auto;
+  text-align: center;
+}
+.container .signUpBox > h3 {
+  font-size: 28px;
+  margin-bottom: 50px;
+}
+
+/* =========[ 공통 ]======== */
+/* Box들 */
+.container .signUpBox .idBox,
+.pwBox,
+.pwBox2,
+.nameBox,
+.birthBox,
+.nicknameBox,
+.emailBox,
+.phoneBox,
+.addressBox {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 25px;
+}
+
+/* Box의 title */
+.container .signUpBox .title {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding-left: 3px;
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 3px;
+}
+
+/* 정규표현 설명 span */
+.container .signUpBox .pwBox > span:nth-child(2),
+.idBox > span:nth-child(2),
+.nicknameBox > span:nth-child(2),
+.emailBox > span:nth-child(2) {
+  display: flex;
+  justify-content: flex-start;
+  padding-left: 3px;
+  font-size: 16px;
+  /* margin-bottom: 10px; */
+}
+
+/* input  */
+.container .signUpBox input {
+  border: 1px solid var(--hows-gray-200);
+  border-radius: 4px;
+  font-size: 16px;
+  padding: 10px;
+  margin-top: 8px;
+  height: 25px;
+}
+.container .signUpBox input:focus {
+  /* 테두리 색상 */
+  outline: 1px solid var(--hows-gray-200);
+}
+
+/* input & button 묶음 */
+.container .signUpBox .formGrop {
+  display: flex;
+  align-items: center;
+}
+
+/* 중복확인 Btn */
+.container .signUpBox .chkBtn {
+  flex: 1;
+  margin: 8px 0 0 8px;
+  height: 46px;
+  background-color: var(--hows-point-color-dark);
+  color: var(--hows-white);
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  transition-duration: 0.4s;
+}
+.container .signUpBox .chkBtn:hover {
+  background-color: var(--hows-point-color-darker);
+}
+
+/* 에러, 안내문구 */
+.container .signUpBox .valid,
+.error {
+  display: flex;
+  justify-content: flex-start;
+  margin-left: 5px;
+}
+
+/* =========[ 개별 ]======== */
+/* ID */
+.container .signUpBox .idBox .inputId {
+  flex: 4;
+}
+
+/* PW */
+.container .signUpBox .pwBox {
+  margin-bottom: 10px;
+}
+
+/* 닉네임 */
+.container .signUpBox .nicknameBox .inputNickname {
+  flex: 4;
+}
+
+/* 생년월일 */
+.container .signUpBox .birthBox {
+  margin-bottom: 15px;
+}
+
+/* 이메일 */
+.container .signUpBox .emailBox .inputEmail {
+  flex: 4;
+}
+
+/* 성별 */
+.container .signUpBox .genderBox {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-bottom: 30px;
+}
+.container .signUpBox .genderBox label {
+  display: flex;
+  flex-direction: row;
+  font-size: 20px;
+}
+.container .signUpBox .genderBox label input {
+  margin: 2px 0 0 8px;
+  transform: scale(1.2);
+}
+
+/* 주소 */
+.container .signUpBox .addressBox input {
+  margin-bottom: 3px;
+}
+.container .signUpBox .addressBox .addressBtn {
+  height: 35px;
+  background-color: var(--hows-point-color-dark);
+  color: var(--hows-white);
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  transition-duration: 0.4s;
+  margin-top: 5px;
+  height: 50px;
+}
+.container .signUpBox .addressBox .addressBtn:hover {
+  background-color: var(--hows-point-color-darker);
+}
+.modalBox {
+  width: 450px;
+  height: 600px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* 회원가입 버튼 */
+.container .signUpBox .btns {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 0;
+}
+.container .signUpBox .btns > button {
+  width: 48%;
+  height: 35px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  transition-duration: 0.4s;
+  height: 50px;
+}
+.container .signUpBox .btns > button:nth-child(1) {
+  background-color: var(--hows-point-color-dark);
+  color: var(--hows-white);
+}
+.container .signUpBox .btns > button:nth-child(1):hover {
+  background-color: var(--hows-point-color-darker);
+}
+.container .signUpBox .btns > button:nth-child(2) {
+  background-color: var(--hows-gray-300);
+  color: var(--hows-white);
+}
+.container .signUpBox .btns > button:nth-child(2):hover {
+  background-color: var(--hows-gray-500);
+}
+
+/* 로그인 */
+.container .signUpBox .login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+.container .signUpBox .login > span {
+  font-size: 16px;
+  font-weight: 400;
+}
+.container .signUpBox .login .linkBtn {
+  border: none;
+  background: none;
+  color: var(--hows-point-color-dark);
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: underline;
+  margin-left: 8px;
+}

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="Guestbook">
+
+	<!-- 글 작성 -->
+	<insert id="insert">
+		insert into guestbook values(
+			guestbook_seq.nextval, #{guestbook_contents}, sysdate, ${member_seq}, #{member_id}
+		)
+	</insert>
+
+	<!-- 전체 출력 -->
+	<select id="selectAll" resultType="com.hows.member.dto.GuestbookSubDTO">
+	    select g.*, m.nickname, m.member_avatar
+	    from guestbook g
+	    join member m on g.member_id = m.member_id
+	    where g.member_seq = ${member_seq}
+	    order by g.guestbook_seq desc
+	</select>
+
+	<!-- 글 삭제 -->
+	<delete id="delete">
+		delete from guestbook where guestbook_seq = ${guestbook_seq}
+	</delete>
+
+	<!-- 방문글 갯수 -->
+	<select id="countGuestbook" resultType="int">
+    	select count(*) from guestbook where member_seq = ${member_seq}
+	</select>
+	
+	
+
+</mapper>

@@ -1,0 +1,151 @@
+/* 대시보드 전체 레이아웃 */
+.container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.container .row {
+    flex: 5;
+    display: flex;
+    gap: 5px;
+    padding: 8px;
+}
+
+.leftBox {
+    flex: 8;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.leftBox .title {
+    flex: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.syncTime {
+    width: 300px;
+    position: relative;
+}
+
+.refreshBtn {
+    position: absolute;
+    right: 0;
+    font-size: 17px;
+    cursor: pointer;
+}
+
+.leftBox .subBox {
+    flex: 1;
+    display: flex;
+    gap: 5px;
+}
+
+.contBox {
+    flex: 1;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 20px;
+    border: 1px solid var(--hows-point-color-lightest-medium);
+    border-radius: 10px;
+}
+
+.leftBox .listBox {
+    flex: 8;
+}
+
+.listBox .subTitle {
+    display: flex;
+    gap: 10px;
+    font-size: 18px;
+    padding-left: 10px;
+}
+
+.listBox .subTitle span {
+    cursor: pointer;
+}
+
+.listBox .subTitle span.active {
+    text-decoration: underline;
+    color: var(--hows-point-color-darkest);
+}
+
+.productList {
+    display: flex;
+    gap: 10px;
+    padding-top: 5px;
+}
+
+.productList .cols {
+    flex: 1;
+    border: 1px solid #ddd;
+    padding: 10px;
+    max-height: 320px;
+    min-width: 193px;
+    max-width: 193px;
+}
+
+.productList .cols img {
+    width: 193px;
+    height: 250px;
+}
+
+.productList .info {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.productList .productTitle {
+    display: flex;
+    gap: 7px;
+}
+
+.productList .info.line .name {
+    text-decoration: line-through;
+}
+
+.productList .name {
+    height: 25px;
+    max-width: 120px;
+    white-space: nowrap;
+    /* 텍스트를 한 줄로 처리 */
+    overflow: hidden;
+    /* 넘치는 부분을 숨김 */
+    text-overflow: ellipsis;
+    /* 넘치는 텍스트를 '...'으로 표시 */
+}
+
+.productList .num {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+}
+
+.rightBox {
+    flex: 2;
+}
+
+.rightBox canvas {
+    height: 450px;
+    width: 450px;
+}
+
+.graphBox {
+    flex: 1;
+}
+
+.graphBox canvas {
+    height: 350px;
+}
+
+.swiper {
+    height: 389px;
+    width: 100%;
+    max-width: 760px;
+}

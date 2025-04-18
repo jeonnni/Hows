@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="Order">
+
+	<resultMap id="myOrderMap" type="java.util.HashMap">
+		<result property="order_list_seq" column="order_list_seq"/>
+		<result property="order_seq" column="order_seq"/>
+		<result property="product_seq" column="product_seq"/>
+		<result property="order_list_count" column="order_list_count"/>
+		<result property="order_list_price" column="order_list_price"/>
+		<result property="product_thumbnail" column="product_thumbnail"/>
+		<result property="product_title" column="product_title"/>
+	</resultMap>
+
+	<select id="myOrder" resultType="com.hows.order.dto.OrderDTO">
+		SELECT
+			*
+		FROM
+			orders
+		WHERE
+			member_seq = #{member_seq}
+	</select>
+
+	<select id="orderDetail" resultType="com.hows.order.dto.OrderDTO">
+		SELECT
+			*
+		FROM
+			orders
+		WHERE
+			order_seq = #{order_seq}
+	</select>
+
+	<select id="myOrderList" resultMap="myOrderMap">
+		SELECT
+			ol.*,
+			p.product_thumbnail,
+			p.product_title
+		FROM
+			order_list ol
+			join product p on p.product_seq = ol.product_seq
+		WHERE
+			order_seq = #{order_seq}
+	</select>
+
+	<select id="orderListByStatus" resultType="com.hows.order.dto.OrderInfoListDTO">
+		select
+		o.order_seq, o.order_date, o.order_name, m.name, g.grade_title, o.order_price, o.orderer_phone, o.orderer_zip_code, o.orderer_address, o.orderer_detail_address, o.order_code, p.payment_price, p.payment_date, o.done_delivery_date
+		from orders o
+		left join member m on o.member_seq = m.member_seq
+		left join grade g on m.grade_code = g.grade_code
+		left join payment p on o.order_seq = p.order_seq
+		<where>
+			<choose>
+				<when test="status == 'product'">
+					o.order_code IN ('O1', 'O2', 'O3')
+				</when>
+				<when test="status == 'delivery'">
+					o.order_code IN ('O4', 'O5', 'O6')
+				</when>
+			</choose>
+		</where>
+	</select>
+	
+	<!-- 반품 목록 조회 -->
+	<select id="getReturnList" resultType="com.hows.order.dto.ReturnDTO">
+		select
+		o.order_seq, r.return_seq, o.order_date, p.payment_date, o.done_delivery_date, 
+		r.return_date, r.done_return_date, o.order_name, m.name, g.grade_title, r.return_code,
+		o.order_price, p.payment_price, o.orderer_phone, p.payment_id, p.payment_text 
+		from orders o
+		left join member m on o.member_seq = m.member_seq
+		left join grade g on m.grade_code = g.grade_code
+		left join payment p on o.order_seq = p.order_seq
+		left join return r on o.order_seq = r.order_seq
+		where p.payment_text is not null
+	</select>
+
+	<insert id="addOrder" parameterType="com.hows.order.dto.OrderDTO">
+		<selectKey keyProperty="order_seq" resultType="int" order="BEFORE">
+			SELECT
+				order_seq.nextval
+			FROM
+				dual
+		</selectKey>
+
+		INSERT INTO
+			orders
+		VALUES(
+			#{order_seq},
+			#{member_seq},
+			#{order_code},
+			#{order_name},
+			default,
+			#{order_price},
+			#{orderer_name},
+			#{orderer_phone},
+			#{orderer_zip_code},
+			#{orderer_address},
+			#{orderer_detail_address},
+			default
+		)
+	</insert>
+
+	<insert id="addOrderList">
+		INSERT INTO
+			order_list
+		VALUES (
+			order_list_seq.nextval,
+			#{order_seq},
+			#{product_seq},
+			#{order_list_count},
+			#{order_list_price}
+		)
+	</insert>
+
+	<select id="getTotalPrice" resultType="java.lang.Integer">
+		SELECT
+			sum(order_price)
+		FROM
+			orders
+		WHERE
+			member_seq = #{member_seq}
+		AND
+			order_code = 'O6'
+	</select>
+
+	<!-- 주문 상태 업데이트 -->
+	<update id="updateOrder">
+		UPDATE
+			orders
+		SET
+			order_code = #{order_code}
+			<if test="order_code == 'O5'">
+			, done_delivery_date = sysdate
+			</if>
+		WHERE
+			order_seq = #{order_seq}
+	</update>
+	
+	<!-- 주문 내역 삭제 -->
+	<delete id="delete">
+		delete from orders where order_seq = #{orderSeq}
+	</delete>
+	
+	<!-- 주문 상태 조회 -->
+	<select id="getOrderCode" resultType="String">
+		select order_code from orders where order_seq = #{orderSeq}
+	</select>
+</mapper>

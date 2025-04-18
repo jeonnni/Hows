@@ -1,0 +1,102 @@
+ li {
+     cursor: pointer;
+ }
+
+ .sideWrap {
+     display: flex;
+     flex-direction: column;
+     gap: 26px;
+     height: 100%;
+ }
+
+ .logoBox {
+     display: flex;
+     align-items: baseline;
+     justify-content: space-around;
+ }
+
+ .logoBox img {
+     max-width: 50px;
+ }
+
+ .logotit {
+     font-size: 34px;
+     font-weight: 700;
+     color: var(--hows-point-color);
+ }
+
+ .adminListCont {
+     display: flex;
+     flex-direction: column;
+     gap: 30px;
+     height: 760px;
+ }
+
+ .adminList:not(:last-child) {
+     border-bottom: 1px solid var(--hows-gray-300);
+     padding-bottom: 20px;
+ }
+
+ .listTit {
+     font-size: 20px;
+     font-weight: 700;
+     display: flex;
+     flex-direction: column;
+     gap: 10px;
+     cursor: default;
+ }
+
+ .listFl {
+     display: block;
+ }
+
+ .listFlBox {
+     font-size: 16px;
+     font-weight: 400;
+     display: flex;
+     gap: 10px;
+     align-items: center;
+     padding-left: 10px;
+     justify-content: space-between;
+ }
+
+ .listFlDept {
+     display: flex;
+     flex-direction: column;
+     gap: 20px;
+ }
+
+ .listSecDept {
+     display: flex;
+     flex-direction: column;
+     gap: 10px;
+     padding-top: 10px;
+ }
+
+ .listSec {
+     font-size: 16px;
+     display: flex;
+     gap: 5px;
+     font-weight: 400;
+ }
+
+ .listSec::before {
+     content: "·";
+     display: block;
+     padding-left: 20px;
+
+ }
+
+ .noToggle {
+     width: 15px;
+ }
+
+ .btn {
+     height: 100%;
+     display: flex;
+     align-items: flex-end;
+ }
+
+ .btn button {
+     width: 100%;
+ }
