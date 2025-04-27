@@ -19,7 +19,7 @@ create table member (
     signup_date timestamp default sysdate,
     withdrawal_date timestamp default null,
     withdrawal_yn char(1) default 'N',
-    member_banner varchar2(500) default null,
+    member_banner varchar2(500) default null, 
     point number default 0,
     member_avatar varchar2(200) default 'https://storage.cloud.google.com/hows-attachment/F1/90855e98-54c0-47af-8935-b1b0b5bff526'
 );

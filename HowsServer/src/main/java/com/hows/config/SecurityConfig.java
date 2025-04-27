@@ -32,7 +32,8 @@ public class SecurityConfig {
 		
 		http.cors(cors -> cors.configurationSource(request -> {
 			CorsConfiguration config = new CorsConfiguration();
-			config.setAllowedOrigins(Arrays.asList(baseUrl, "https://howsworld.online")); // 이 도메인 허용
+//			config.setAllowedOrigins(Arrays.asList(baseUrl, "https://howsworld.online")); // 이 도메인 허용
+			config.setAllowedOrigins(Arrays.asList(baseUrl, "https://hows-11fd6.web.app"));
 			config.setAllowedHeaders(Arrays.asList("*")); // 모든 헤더를 허용
 			config.setAllowedMethods(Arrays.asList("*")); // 모든 HTTP 메서드(POST, GET, PUT, DELETE 등)를 허용
 			
@@ -41,7 +42,7 @@ public class SecurityConfig {
 		.formLogin(form -> form.disable()).httpBasic(basic->basic.disable())
 		.authorizeHttpRequests(request -> request
 			    // 로그인 필요없음 - 모든 사용자 접근 가능
-//				 .requestMatchers("/**").permitAll()
+				 .requestMatchers("/**").permitAll() 
 			    .requestMatchers(HttpMethod.POST, 
 			    		"/auth/**", 
 			    		"/member", 

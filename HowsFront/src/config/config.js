@@ -4,7 +4,7 @@ import { SwalComp } from '../commons/commons'
 
 // 설정 변수
 const { REACT_APP_BASE_URL } = process.env
-console.log(REACT_APP_BASE_URL + "!!!!!!!!!!!!!!!!!!!!!!!")
+// console.log(REACT_APP_BASE_URL + "!!!!!!!!!!!!!!!!!!!!!!!")
 export const host = REACT_APP_BASE_URL
 
 // API base url 설정
