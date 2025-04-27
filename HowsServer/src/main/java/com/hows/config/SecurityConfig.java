@@ -42,7 +42,7 @@ public class SecurityConfig {
 		.formLogin(form -> form.disable()).httpBasic(basic->basic.disable())
 		.authorizeHttpRequests(request -> request
 			    // 로그인 필요없음 - 모든 사용자 접근 가능
-				 .requestMatchers("/**").permitAll() 
+//				 .requestMatchers("/**").permitAll() 
 			    .requestMatchers(HttpMethod.POST, 
 			    		"/auth/**", 
 			    		"/member", 
