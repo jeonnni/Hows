@@ -7,7 +7,7 @@
 - How's
   - '집(House)'을 뜻하는 단어와 '어떻게(How)' 집을 꾸밀 수 있을지에 대한 다양한 가능성을 담고 있는 브랜드입니다
 ### 기간 : 2024.08.28 ~ 2024.09.26
-### Hosting : https://howsworld.online
+### Hosting : https://howsworld.online -> https://hows-11fd6.web.app/
 
 ## 담당 역할 
 - 서버 및 프론트엔드 전체 배포 총괄
